@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+  <!-- Three arcs curving from bottom-left to top-right dot -->
+  <path d="M8 42 C10 28 20 10 42 8" stroke="#fbbf24" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M8 34 C10 23 22 10 36 8" stroke="#fbbf24" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.58"/>
+  <path d="M8 26 C11 19 22 10 30 8" stroke="#fbbf24" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.28"/>
+  <circle cx="42" cy="8" r="4.5" fill="#fbbf24"/>
+</svg>
