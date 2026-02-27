@@ -33,26 +33,32 @@ document.querySelectorAll('.header__tab').forEach(function(tab) {
 });
 
 // анимация появления карточек при скролле
-// IntersectionObserver следит - видно ли элемент на экране
 const observer = new IntersectionObserver(function(entries) {
   entries.forEach(function(entry, i) {
     if (entry.isIntersecting) {
-      // небольшая задержка для каждой карточки - выглядит красиво
       setTimeout(function() {
-        entry.target.classList.add('is-visible');
-      }, i * 120);
-      observer.unobserve(entry.target); // больше не наблюдаем за этим элементом
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'none';
+      }, i * 100);
+      observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.1 });
+}, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
 
-// скрываем карточки и запускаем наблюдение
 document.querySelectorAll('.feature, .about__left').forEach(function(el) {
   el.style.opacity = '0';
-  el.style.transform = 'translateY(24px)';
-  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  el.style.transform = 'translateY(18px)';
+  el.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
   observer.observe(el);
 });
+
+// страховка — через 800мс всё показываем независимо от скролла
+setTimeout(function() {
+  document.querySelectorAll('.feature, .about__left').forEach(function(el) {
+    el.style.opacity = '1';
+    el.style.transform = 'none';
+  });
+}, 800);
 
 // --- МОДАЛЬНОЕ ОКНО ---
 
